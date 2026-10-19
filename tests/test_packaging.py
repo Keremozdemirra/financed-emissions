@@ -20,14 +20,13 @@ class Consistency(unittest.TestCase):
         server = json.loads(read("server.json"))
         self.assertEqual(pyproject, fe.__version__)
         self.assertEqual(server["version"], fe.__version__)
-        self.assertEqual(server["packages"][0]["version"], fe.__version__)
 
     def test_registry_name_and_launch(self):
         server = json.loads(read("server.json"))
         self.assertIn(f"<!-- mcp-name: {server['name']} -->", read("README.md"))
-        package = server["packages"][0]
-        self.assertEqual(package["identifier"], "financed-emissions")
-        self.assertEqual(package["packageArguments"][0]["value"], "mcp")
+        self.assertNotIn("packages", server)  # not on PyPI; installed from GitHub
+        self.assertIn("uvx --from git+https://github.com/Keremozdemirra/financed-emissions financed-emissions mcp",
+                      read("README.md"))
         self.assertLess(len(server["description"]), 100)
 
     def test_workflow_pins(self):

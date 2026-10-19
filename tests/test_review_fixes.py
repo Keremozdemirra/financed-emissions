@@ -190,7 +190,7 @@ class Item7To9Documentation(unittest.TestCase):
     def test_readme_says_the_example_needs_a_clone(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertIn("git clone https://github.com/Keremozdemirra/financed-emissions", readme)
-        self.assertIn("not part of the PyPI package", readme)
+        self.assertIn("not part of the installed package", readme)
 
     def test_guarantee_reason_is_paraphrased(self):
         self.assertNotIn("have no attribution until they are called", fe.OUT_OF_SCOPE["guarantee"])

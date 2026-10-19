@@ -13,7 +13,7 @@ It reads the CSV path it is given and nothing else; it sends nothing anywhere.
 
 Run it:   financed-emissions mcp
 Client config (Claude Code):
-  claude mcp add financed-emissions -- uvx financed-emissions mcp
+  claude mcp add financed-emissions -- uvx --from git+https://github.com/Keremozdemirra/financed-emissions financed-emissions mcp
 """
 from __future__ import annotations
 

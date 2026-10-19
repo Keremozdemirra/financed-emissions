@@ -28,13 +28,13 @@ follow a figure back to its inputs and to the standard.
 [`examples/portfolio.csv`](examples/portfolio.csv) holds 17 invented positions covering every asset class. All
 counterparties are fictional and labelled as such; the `fx_rate` on the two USD rows is an illustrative value,
 not a market rate. Two rows are there to fail (a mortgage without a property value, a swap) and one to be
-flagged (a mortgage above 100% loan-to-value). The file is in the repository and not part of the PyPI package,
+flagged (a mortgage above 100% loan-to-value). The file is in the repository and not part of the installed package,
 so run it from a clone:
 
 ```bash
 git clone https://github.com/Keremozdemirra/financed-emissions
-cd financed-emissions
-uvx financed-emissions examples/portfolio.csv --currency EUR
+cd financed-emissions && pip install .
+financed-emissions examples/portfolio.csv --currency EUR
 ```
 
 Real output, 2026-09-24 (excerpt: the per-asset-class summary and everything after it; the full run first
@@ -131,15 +131,19 @@ The same run with `--strict` exits 1: two positions were not computed and one is
 
 ## Install
 
+Nothing is published to PyPI; every install runs straight from GitHub.
+
 ```bash
-uvx financed-emissions portfolio.csv --currency EUR
-pipx run financed-emissions portfolio.csv --currency EUR
+uvx --from git+https://github.com/Keremozdemirra/financed-emissions financed-emissions portfolio.csv --currency EUR
+pipx install git+https://github.com/Keremozdemirra/financed-emissions     # or: pip install git+https://github.com/Keremozdemirra/financed-emissions
 ```
+
+From a checkout: `git clone https://github.com/Keremozdemirra/financed-emissions && cd financed-emissions && pip install .`
 
 As an MCP server, for example in Claude Code:
 
 ```bash
-claude mcp add financed-emissions -- uvx financed-emissions mcp
+claude mcp add financed-emissions -- uvx --from git+https://github.com/Keremozdemirra/financed-emissions financed-emissions mcp
 ```
 
 ## Commands
