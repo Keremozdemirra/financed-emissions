@@ -26,8 +26,8 @@ follow a figure back to its inputs and to the standard.
 ## Example
 
 [`examples/portfolio.csv`](examples/portfolio.csv) holds 17 invented positions covering every asset class. All
-counterparties are fictional and labelled as such; the `fx_rate` on the two USD rows is an illustrative value,
-not a market rate. Two rows are there to fail (a mortgage without a property value, a swap) and one to be
+counterparties are fictional and labelled as such; the `fx_rate` on the two USD rows is an illustrative value.
+Two rows are there to fail (a mortgage without a property value, a swap) and one to be
 flagged (a mortgage above 100% loan-to-value). The file is in the repository and not part of the installed package,
 so run it from a clone:
 
@@ -336,7 +336,7 @@ MIT for the code. The PCAF Standard belongs to PCAF.
 
 ## What this is not
 
-Not the PCAF Standard, not a PCAF product, and not endorsed by PCAF. Not assurance, not a disclosure, not advice.
+Not the PCAF Standard or a PCAF product, and not endorsed by PCAF. Not assurance, disclosure or advice.
 A computed figure is the arithmetic of your inputs and the published method; whether the inputs are right, and
 whether the method chosen fits each position (Figure 5-1 of the standard), is for the preparer and the auditor to
 decide. A position that computes cleanly is not thereby verified.
